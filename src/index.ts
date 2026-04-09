@@ -6,6 +6,8 @@ import { registerForecastTool } from "./tools/forecast.js";
 import { registerWaveTool } from "./tools/waves.js";
 import { registerAirQualityTool } from "./tools/air-quality.js";
 import { registerWebcamTools } from "./tools/webcams.js";
+import { registerSwellTool } from "./tools/swell.js";
+import { registerTideTools } from "./tools/tides.js";
 
 function getRequiredEnv(name: string): string {
   const value = process.env[name];
@@ -28,6 +30,10 @@ const windyApiKey = getRequiredEnv("WINDY_API_KEY");
 registerForecastTool(server, windyApiKey);
 registerWaveTool(server, windyApiKey);
 registerAirQualityTool(server, windyApiKey);
+registerSwellTool(server, windyApiKey);
+
+// Register tide tools (NOAA CO-OPS — free, no key needed)
+registerTideTools(server);
 
 // Register webcam tools (Webcams API) — uses separate key if provided, falls back to main key
 const webcamsApiKey = process.env.WINDY_WEBCAMS_API_KEY?.trim() || windyApiKey;
