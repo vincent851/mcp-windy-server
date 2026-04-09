@@ -1,0 +1,41 @@
+{
+  "name": "mcp-windy-server",
+  "version": "1.0.0",
+  "description": "MCP server for Windy weather data - forecasts, waves, air quality, and webcams",
+  "type": "module",
+  "main": "build/index.js",
+  "bin": {
+    "mcp-windy-server": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x build/index.js",
+    "start": "node build/index.js",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "files": [
+    "build"
+  ],
+  "keywords": [
+    "mcp",
+    "windy",
+    "weather",
+    "forecast",
+    "waves",
+    "wind"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^3.0.0"
+  }
+}
